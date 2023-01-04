@@ -3,7 +3,6 @@ import Foundation
 
 struct Student {
     var name: String
-    let id = UUID().uuidString
     var grades: [Float]
     
     var finalExam: Float {
