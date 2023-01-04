@@ -3,7 +3,7 @@ import RegexBuilder
 
 @main
 public struct Grade_System {
-    static var gradesDict: [Grades : Int] = [:]
+    static var totalGrades: [Grades : Int] = [:]
 
     public static func main() async throws {
         print("Enter the input filename: ", terminator: "")
@@ -32,7 +32,7 @@ public struct Grade_System {
             try student_list.sorted { lhs, rhs in
                 lhs.key.rawValue < rhs.key.rawValue
             }.map { val in 
-                try summary_report(of: val.value, &gradesDict)
+                try summary_report(of: val.value, &totalGrades)
             }.reduce("") { initialResult, partialResult in
                 initialResult + partialResult + "\n"
             }
@@ -40,7 +40,7 @@ public struct Grade_System {
         OVERALL GRADE DISTRIBUTION
 
         \(
-            gradesDict.sorted { lhs, rhs in
+            totalGrades.sorted { lhs, rhs in
                 lhs.key.rawValue < rhs.key.rawValue
             }.reduce("") { initialResult, partialResult in
                 initialResult + "\(partialResult.key):    \(partialResult.value)\n"
@@ -119,8 +119,8 @@ public struct Grade_System {
         return dict_of_subject_to_students
     }
 
-    static func summary_report(of: [Student], _ gradesDict: inout [Grades: Int]) throws -> String {
-        guard let student = of.first else {
+    static func summary_report(of list: [Student], _ totalGrades: inout [Grades: Int]) throws -> String {
+        guard let student = list.first else {
             throw GradeError.emptyArray
         }
         var msg = ""
@@ -139,11 +139,11 @@ public struct Grade_System {
         -------------------------------------------------------------------------
 
         """
-        try of.forEach { student in
-            if let value = gradesDict[try student.grade] {
-                gradesDict.updateValue(value + 1, forKey: try student.grade)
+        try list.forEach { student in
+            if let value = totalGrades[try student.grade] {
+                totalGrades.updateValue(value + 1, forKey: try student.grade)
             } else {
-                gradesDict[try student.grade] = 1
+                totalGrades[try student.grade] = 1
             }
             msg += 
             """
