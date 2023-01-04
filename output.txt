@@ -1,0 +1,35 @@
+Student Grade Summary
+---------------------
+
+English CLASS
+
+Student                                   Final   Final   Letter
+Name                                      Exam    Avg     Grade
+-------------------------------------------------------------------------
+Joe Schmuckatelli                         90.0    84.25    B
+Monica Lewinsky                           78.0    71.40    C
+
+History CLASS
+
+Student                                   Final   Final   Letter
+Name                                      Exam    Avg     Grade
+-------------------------------------------------------------------------
+Marvin Dipwart                            88.0    80.30    B
+James T. Kirk                             88.0    80.80    B
+Blessing Adline                           73.0    69.00    D
+
+History CLASS
+
+Student                                   Final   Final   Letter
+Name                                      Exam    Avg     Grade
+-------------------------------------------------------------------------
+Marvin Dipwart                            88.0    80.30    B
+James T. Kirk                             88.0    80.80    B
+Goodness Gift                             86.0    60.48    D
+
+
+OVERALL GRADE DISTRIBUTION
+
+B:    5
+C:    1
+D:    2
